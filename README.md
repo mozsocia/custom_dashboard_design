@@ -5,6 +5,8 @@ good free admin
 
 https://github.com/themesberg/volt-bootstrap-5-dashboard
 
+https://github.com/ColorlibHQ/gentelella
+
 https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/#download
 
 https://codescandy.gumroad.com/l/dashui
