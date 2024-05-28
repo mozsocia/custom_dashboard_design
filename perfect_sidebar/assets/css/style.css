@@ -48,12 +48,8 @@ a {
     display: flex;
     align-items: center;
     color: var(--color_Light1);
-    transition: all .5s ease;
 }
 
-.logo-box:hover {
-    color: var(--color_Blue);
-}
 
 .logo-box i {
     font-size: 30px;
@@ -61,12 +57,8 @@ a {
     min-width: 78px;
     text-align: center;
     line-height: 50px;
-    transition: all .5s ease;
 }
 
-.sidebar.close .logo-box i {
-    transform: rotate(360deg);
-}
 
 .logo-name {
     font-size: 22px;
@@ -84,9 +76,7 @@ a {
     display: none;
 }
 
-.sidebar-list li {
-    transition: all .5s ease;
-}
+
 
 .sidebar-list li:hover {
     background-color: var(--color_Dark2);
@@ -96,7 +86,6 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all .5s ease;
     cursor: pointer;
 }
 
@@ -104,10 +93,6 @@ a {
     background-color: var(--color_Blue);
 }
 
-.sidebar-list li.active .bxs-chevron-down {
-    transition: all .5s ease;
-    transform: rotate(180deg);
-}
 
 .sidebar-list li .title .link {
     display: flex;
@@ -130,28 +115,61 @@ a {
 }
 
 /* ---------------- Submenu ------------- */
+
 .sidebar-list li .submenu {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    transition: all .5s ease;
+    height: 0; 
+    transition: height 0.5s ease, padding 0.21s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    list-style: none;
 }
 
 .sidebar-list li.dropdown.active .submenu {
-    width: unset;
     height: unset;
-    opacity: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 6px 6px 14px 80px;
     background-color: var(--color_Dark2);
+    padding: 10px 0; 
+
+
 }
+.sidebar-list li.dropdown .arrow {
+    transition: transform .15s ease;
+}
+
+
+.sidebar-list li.dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+
+.sidebar-list li .submenu a {
+    padding: 5px 5px 0px 70px;
+}
+
+.sidebar.close .sidebar-list li .submenu a {
+    padding: 5px 5px 0px 5px;
+}
+
+.sidebar-list li .submenu a:before {
+    content: "-";
+    left: 30px;
+    border: none !important;
+    background-color: transparent;
+    inset-inline-start: 0.5rem;
+    padding: 8px;
+}
+.sidebar-list li .submenu a.submenu-title:before {
+    content: "";
+}
+
 
 .submenu .link {
     color: var(--color_Light2);
     font-size: 15px;
     padding: 5px 0;
-    transition: all .5s ease;
+    /* transition: all .5s ease; */
 }
 
 .submenu .link:hover {
@@ -189,7 +207,6 @@ a {
     height: max-content;
     width: max-content;
     opacity: 0;
-    transition: all .5s ease;
     pointer-events: none;
 }
 
