@@ -19,6 +19,9 @@ const sidebar = document.querySelector(".sidebar");
 
 toggleSidebar.addEventListener("click", () => {
   sidebar.classList.toggle("close");
+  listItems.forEach((el) => {
+    el.classList.remove("active");
+  });
 });
 
 logo.addEventListener("click", () => {
@@ -26,13 +29,24 @@ logo.addEventListener("click", () => {
 });
 
 
+function handleOutsideClick(event) {
+  if (!sidebar.contains(event.target) && !toggleSidebar.contains(event.target)) {
+    sidebar.classList.add("close");
+    listItems.forEach((el) => {
+      el.classList.remove("active");
+    });
+  }
+}
+
 function applyClassBasedOnScreenSize() {
   var sidebar = document.querySelector('.sidebar');
   
   if (window.innerWidth < 774) {
       sidebar.classList.add('close');
+      document.addEventListener('click', handleOutsideClick);
   } else {
       sidebar.classList.remove('close');
+      document.removeEventListener('click', handleOutsideClick);
   }
 }
 
@@ -41,3 +55,7 @@ applyClassBasedOnScreenSize();
 
 // Attach the function to the window resize event to update the class on screen size changes
 window.addEventListener('resize', applyClassBasedOnScreenSize);
+
+// Function to handle outside click
+
+
